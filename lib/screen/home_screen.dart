@@ -4,7 +4,7 @@ import 'package:getx_dependency_injection/controller/home_controller.dart';
 import 'package:getx_dependency_injection/screen/cart_screen.dart';
 
 class HomeScreen extends GetWidget<HomeController> {
-  static String homeScreenRouteName = "/home";
+  //static String homeScreenRouteName = "/home";
 
   @override
   Widget build(BuildContext context) {
