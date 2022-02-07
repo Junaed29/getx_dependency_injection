@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_dependency_injection/controller/home_controller.dart';
 
-class CartScreen extends StatelessWidget {
-  HomeController homeController = Get.find<HomeController>();
-
+class CartScreen extends GetWidget<HomeController> {
+  static String cartScreenRouteName = "/cart";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +16,7 @@ class CartScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Obx(() {
-              return Text("Total cart item is ${homeController.cart.value}");
+              return Text("Total cart item is ${controller.cart.value}");
             }),
           ],
         ),

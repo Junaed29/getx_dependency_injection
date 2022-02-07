@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 import 'package:getx_dependency_injection/controller/home_controller.dart';
 import 'package:getx_dependency_injection/screen/cart_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeController homeController = Get.find<HomeController>();
-  bool login = true;
+class HomeScreen extends GetWidget<HomeController> {
+  static String homeScreenRouteName = "/home";
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +17,23 @@ class HomeScreen extends StatelessWidget {
           children: [
             Obx(() {
               print("User status rebuild");
-              return Text("User status ${homeController.status.value}");
+              return Text("User status ${controller.status.value}");
             }),
             Obx(() {
               print("Button rebuild");
               return ElevatedButton(
                   onPressed: () {
-                    homeController.status.value.toLowerCase() == "online"
-                        ? homeController.updateStatus("Offline")
-                        : homeController.updateStatus("Online");
+                    controller.status.value.toLowerCase() == "online"
+                        ? controller.updateStatus("Offline")
+                        : controller.updateStatus("Online");
                   },
-                  child: homeController.status.toLowerCase() == "online"
+                  child: controller.status.toLowerCase() == "online"
                       ? const Text("Logout")
                       : const Text("Login"));
             }),
             ElevatedButton(
                 onPressed: () {
-                  homeController.incrementCart();
+                  controller.incrementCart();
                 },
                 child: Text("Cart incriment")),
             ElevatedButton(
